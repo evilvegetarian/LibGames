@@ -73,7 +73,7 @@ public class GameController : ControllerBase
             var gameCreate = await gameService.CreateGameAsync(game, gameCreateDto.IdGenre, gameCreateDto.IdStudios, ct);
             var gameMap = mapper.Map<GameDto>(gameCreate);
 
-            return CreatedAtAction("Get", new { id = gameMap.Id }, gameCreateDto);
+            return CreatedAtAction("Get", new { id = gameCreate.Id }, gameMap);
 
         }
         catch (Exception ex)

@@ -36,7 +36,7 @@ public class GenreRepository : IGenreRepository
                               .FirstOrDefaultAsync(x => x.Id == id, ct);
     }
 
-    public async Task<ICollection<Genre>> GetGenresAsyncForGame(List<int> idGenres,CancellationToken ct)
+    public async Task<ICollection<Genre>> GetGenresAsyncForGame(List<int> idGenres, CancellationToken ct)
     {
         return await dbContext.Genres
                               .Where(g => idGenres.Contains(g.Id))
