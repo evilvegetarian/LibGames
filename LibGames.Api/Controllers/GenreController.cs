@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Humanizer.Localisation;
 using LibGames.Api.BL.Exc;
 using LibGames.Api.BL.Services;
 using LibGames.Api.DAL.Entities;
@@ -82,13 +83,14 @@ public class GenreController : ControllerBase
 
     // PUT api/<GenreController>/5
     [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, [FromBody] GenreCreatDto genreCreatDto, CancellationToken ct)
+    public async Task<ActionResult<GenreDto>> Put(int id, [FromBody] GenreCreatDto genreCreatDto, CancellationToken ct)
     {
         try
         {
             var genreMap = mapper.Map<Genre>(genreCreatDto);
-            await genreService.UpdateGenryAsync(id, genreMap, ct);
-            return NoContent();
+            var genre = await genreService.UpdateGenryAsync(id, genreMap, ct);
+
+            return Ok(mapper.Map<GenreDto>(genre));
         }
         catch (NotFoundException ex)
         {

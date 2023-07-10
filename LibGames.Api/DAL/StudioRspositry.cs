@@ -40,8 +40,6 @@ public class StudioRepository : IStudioRepository
     {
         return await dbContext.Studios.Where(g => idStudious.Contains(g.Id))
                                       .ToListAsync(ct);
-
-
     }
 
     public async Task<Studio> CreateStudioAsync(Studio studio, CancellationToken ct)

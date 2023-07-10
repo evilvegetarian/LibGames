@@ -92,8 +92,8 @@ public class GameController : ControllerBase
         {
             var game = mapper.Map<Game>(gameCreateDto);
             game.Id = id;
-            await gameService.UpdateGameAsync(id, gameCreateDto.IdGenre, gameCreateDto.IdStudios, game, ct);
-            return NoContent();
+            var gameUpd = await gameService.UpdateGameAsync(id, gameCreateDto.IdGenre, gameCreateDto.IdStudios, game, ct);
+            return Ok(mapper.Map<GameDto>(gameUpd));
         }
         catch (NotFoundException ex)
         {

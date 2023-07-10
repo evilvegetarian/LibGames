@@ -82,13 +82,13 @@ public class StudioController : ControllerBase
 
     // PUT api/<StudioController>/5
     [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, [FromBody] StudioCreatDto studioCreateDto, CancellationToken ct)
+    public async Task<ActionResult<StudioDto>> Put(int id, [FromBody] StudioCreatDto studioCreateDto, CancellationToken ct)
     {
         try
         {
             var studioMap = mapper.Map<Studio>(studioCreateDto);
-            await studioService.UpdateStudioAsync(id, studioMap, ct);
-            return NoContent();
+            var studio = await studioService.UpdateStudioAsync(id, studioMap, ct);
+            return Ok(mapper.Map<StudioDto>(studio));
         }
         catch (NotFoundException ex)
         {
