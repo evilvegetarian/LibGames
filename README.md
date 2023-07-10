@@ -32,9 +32,9 @@ Content-Type: application/json
 
 ```
 {
-  "name": "Splinter Cell",
-  "description": "string",
-  "yearOfRelease": "2023-07-10",
+  "name": "Assassin’s Creed: Brotherhood",
+  "description": "Assassin’s Creed: Brotherhood (с англ. — «Кредо ассасина: Братство», в России официально издаётся под названием «Assassin’s Creed: Братство крови») — компьютерная игра в жанре action-adventure и стелс-экшена с видом от третьего лица, разработанная компанией Ubisoft Montreal для платформ Windows, Xbox 360 и PlayStation 3. Игра издана французской компанией Ubisoft 19 ноября 2010 года для консолей, а 17 марта 2011 года вышла версия для Windows[2]. Является третьей игрой в серии игр Assassin’s Creed.",
+  "yearOfRelease": "2010-10-16",
   "idGenre": [
   1,2
   ],
